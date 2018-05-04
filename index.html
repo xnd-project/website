@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.min.css" integrity="sha256-N1K43s+8twRa+tzzoF3V8EgssdDiZ6kd9r8Rfgg8kZU=" crossorigin="anonymous" />
+        <title>XND</title>
+    </head>
+    <body>
+        <main>
+            <div class="jumbotron">
+                <div class="container text-center">
+                    <h1 class="mb-4">
+                        <img style="height: 250px; width: 700px; object-fit: none" src="https://files.slack.com/files-pri/T8XM7KN5B-FAJ8YC2UC/download/xndlogo_transparentbg.png" />
+                    </h1>
+                    <p class="lead">
+                        Building blocks for scientific computation.
+                    </p>
+                    <a class="btn btn-outline-danger btn-lg" href="https://gitter.im/Plures/xnd">Gitter</a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>
+                            gumath
+                            <small class="text-muted">is a library for function dispatch.</small>
+                        </h2>
+                        <p><strong><code>libgumath</code></strong> is a C library supporting a general dispatch mechanism for general memory containers as well as a specific implementation for NumPy-like containers of a composable, generalized function concept.</p>
+                        <p><strong><code>gumath</code></strong> is a Python wrapper for <code>libgumath</code>.</p>
+                        <a class="btn btn-outline-primary" href="https://github.com/plures/gumath/" role="button">Code</a>
+                    </div>
+                    <div class="col-md-5">
+                        <pre><code class="language-python">import gumath as gm
+from xnd import xnd
+
+x = xnd([1.0, 2.0, 3.0])
+y = gm.sin(x)</code></pre>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>
+                            xnd
+                            <small class="text-muted">is a package for typed memory blocks.</small>
+                        </h2>
+                        <p><strong><code>libxnd</code></strong> implements support for typed memory blocks using the <code>libndtypes</code> type library.</p>
+                        <p>The <strong><code>xnd</code></strong> module implements a container type that maps most Python values relevant for scientific computing directly to typed memory.</p>
+                        <a class="btn btn-outline-primary" href="https://github.com/plures/xnd/" role="button">Code</a>
+                        <a class="btn btn-outline-success" href="http://xnd.readthedocs.io/en/latest/index.html" role="button">Docs</a>
+                    </div>
+                    <div class="col-md-5">
+                        <pre><code class="language-python">>>> from xnd import xnd
+>>> x = xnd([[0, 1, 2], [3, 4, 5]])
+>>> x
+xnd([[0, 1, 2], [3, 4, 5]], type='2 * 3 * int64')</code></pre>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>
+                            ndtypes
+                            <small class="text-muted">is a package for typing raw memory blocks.</small>
+                        </h2>
+                        <p><strong><code>libndtypes</code></strong> implements the type part of a compiler frontend. It can describe C types needed for array computing and additionally includes symbolic types for the purposes of dynamic type checking.</p>
+                        <p>The <strong><code>ndtypes</code></strong> Python module implements bindings for libndtypes. Its purpose is to support the type part required for the xnd container module.</p>
+                        <a class="btn btn-outline-primary" href="https://github.com/plures/ndtypes/" role="button">Code</a>
+                        <a class="btn btn-outline-success" href="http://ndtypes.readthedocs.io/en/latest/index.html" role="button">Docs</a>
+                    </div>
+                    <div class="col-md-5">
+                        <pre><code class="language-python">>>> # fixed dimension type
+>>> ndt("fixed(shape=10) * uint64")
+ndt("10 * uint64")</code></pre>
+<pre><code class="language-python">>>> # variable dimension type
+>>> ndt("var * float32")
+ndt("var * float32")</code></pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js" integrity="sha256-jTGzLAqOAcOL+ALD2f2tvFY7fs6dwkOeo88xiuVHaRk=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-python.min.js" integrity="sha256-Cnsy1D8mpJ5y4oRYZnhMnNxD51Cc1hHiQX33Jckfcn0=" crossorigin="anonymous"></script>
+    </body>
+</html>
