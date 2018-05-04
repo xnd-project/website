@@ -13,15 +13,50 @@
             <div class="jumbotron">
                 <div class="container text-center">
                     <h1 class="mb-4">
-                        <img style="height: 250px; width: 700px; object-fit: none" src="https://files.slack.com/files-pri/T8XM7KN5B-FAJ8YC2UC/download/xndlogo_transparentbg.png" />
+                        <img style="height: 250px; width: 700px; object-fit: none" src="https://files.slack.com/files-pri/T8XM7KN5B-FAJEVDS1H/download/xndlogo_transparentbg.png" />
                     </h1>
                     <p class="lead">
-                        Building blocks for scientific computation.
+                        Developer libraries for array computing.
                     </p>
-                    <a class="btn btn-outline-danger btn-lg" href="https://gitter.im/Plures/xnd">Gitter</a>
                 </div>
             </div>
             <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="display-4">Motivation</h2>
+                        <p>
+                            NumPy has been very impactful in the Python ecosystem, providing efficient array computations. It is still heavily used today and many
+                            recent Python libraries either use it internally or were influenced by it's API.
+                        </p>
+                        <p>
+                            However, with the explosion of machine learning and data analysis work happening in Python, many new libraries have implemented
+                            their own typed arrays and computation layers, because the NumPy model is not flexible enough. It is hard to extend NumPy with new types
+                            and get effecient computation on a variety of hardware devices.
+                        </p>
+                        <p>
+                            We are building XND to recreate the heart of NumPy as a number of smaller libraries, combining the lessons learned in the past twenty years
+                            of array computing in Python with the needs of newer applications.
+                        </p>
+                        <p>
+                            We want to integrate with tools in the Python data analysis and machine learning community
+                            in order to make it easier for users to share data between them and combine their functionalities.
+                        </p>
+                        <p>
+                            We are actively working on using XND in Numba and are interested in integrating it with a variety of libraries including
+                            Dask, xarray, Numba, Chainer, Torch, PyMC4, TVM, Plasma Store, Apache Arrow, and Tensor Comprehensions.
+                        </p>
+                        <p>
+                            Please reach out if you have ideas or want to help.
+                        </p>
+                        <a class="btn btn-outline-danger" href="https://gitter.im/Plures/xnd">XND Gitter</a>
+                        <a class="btn btn-outline-danger" href="https://gitter.im/Plures/xnd-ml">XND integrations Gitter</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="display-4 mt-5">Packages</h2>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-7">
                         <h2>
@@ -82,6 +117,11 @@ ndt("var * float32")</code></pre>
                 </div>
             </div>
         </main>
+        <footer class="mt-4 py-4 bg-light">
+            <div class="container">
+                Supported by <a href="https://www.quansight.com/">Quansight</a>
+            </div>
+        </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js" integrity="sha256-jTGzLAqOAcOL+ALD2f2tvFY7fs6dwkOeo88xiuVHaRk=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-python.min.js" integrity="sha256-Cnsy1D8mpJ5y4oRYZnhMnNxD51Cc1hHiQX33Jckfcn0=" crossorigin="anonymous"></script>
