@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <h2>
                             gumath
                             <small class="text-muted">is a library for function dispatch.</small>
@@ -63,46 +63,52 @@
                         <p><strong><code>gumath</code></strong> is a Python wrapper for <code>libgumath</code>.</p>
                         <a class="btn btn-outline-primary" href="https://github.com/plures/gumath/" role="button">Code</a>
                     </div>
-                    <div class="col-md-5">
-                        <pre><code class="language-python">import gumath as gm
-from xnd import xnd
+                    <div class="col-md-6">
+                        <pre><code class="language-bash">$ conda install -c xnd/label/dev gumath
+# or
+$ python3 -m pip install gumath</code></pre>
 
-x = xnd([1.0, 2.0, 3.0])
-y = gm.sin(x)</code></pre>
+                        <pre><code class="language-python">>>> import gumath as gm
+>>> from xnd import xnd
+>>> gm.sin(xnd([[1, 2], [3, 4]]))
+xnd([[0.8414709848078965, 0.9092974268256817], [0.1411200080598672, -0.7568024953079282]], type='2 * 2 * float64'))</code></pre>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <h2>
                             xnd
-                            <small class="text-muted">is a package for typed memory blocks.</small>
+                            <small class="text-muted">is a library for typed memory blocks.</small>
                         </h2>
                         <p><strong><code>libxnd</code></strong> implements support for typed memory blocks using the <code>libndtypes</code> type library.</p>
                         <p>The <strong><code>xnd</code></strong> module implements a container type that maps most Python values relevant for scientific computing directly to typed memory.</p>
                         <a class="btn btn-outline-primary" href="https://github.com/plures/xnd/" role="button">Code</a>
                         <a class="btn btn-outline-success" href="http://xnd.readthedocs.io/en/latest/index.html" role="button">Docs</a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <pre><code class="language-python">>>> from xnd import xnd
->>> x = xnd([[0, 1, 2], [3, 4, 5]])
->>> x
-xnd([[0, 1, 2], [3, 4, 5]], type='2 * 3 * int64')</code></pre>
+>>> xnd([{'b': [10.2, 232.3]}, {'b': [0.2, 0.23]}])
+xnd([{'b': [10.2, 232.3]}, {'b': [0.2, 0.23]}], type='2 * {b : 2 * float64}')</code></pre>
+                        <pre><code class="language-python">>>> from xnd import xnd
+>>> import numpy as np
+>>> xnd.from_buffer(np.arange(6).reshape(3, 2))
+xnd([[0, 1], [2, 3], [4, 5]], type='3 * 2 * int64')</code></pre>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <h2>
                             ndtypes
-                            <small class="text-muted">is a package for typing raw memory blocks.</small>
+                            <small class="text-muted">is a library for typing memory blocks.</small>
                         </h2>
                         <p><strong><code>libndtypes</code></strong> implements the type part of a compiler frontend. It can describe C types needed for array computing and additionally includes symbolic types for the purposes of dynamic type checking.</p>
                         <p>The <strong><code>ndtypes</code></strong> Python module implements bindings for libndtypes. Its purpose is to support the type part required for the xnd container module.</p>
                         <a class="btn btn-outline-primary" href="https://github.com/plures/ndtypes/" role="button">Code</a>
                         <a class="btn btn-outline-success" href="http://ndtypes.readthedocs.io/en/latest/index.html" role="button">Docs</a>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <pre><code class="language-python">>>> # fixed dimension type
 >>> ndt("fixed(shape=10) * uint64")
 ndt("10 * uint64")</code></pre>
@@ -128,5 +134,6 @@ ndt("var * float32")</code></pre>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js" integrity="sha256-jTGzLAqOAcOL+ALD2f2tvFY7fs6dwkOeo88xiuVHaRk=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-python.min.js" integrity="sha256-Cnsy1D8mpJ5y4oRYZnhMnNxD51Cc1hHiQX33Jckfcn0=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-bash.min.js" integrity="sha256-Ch5rv5tgAdVMCh7Wqb0UOcXkQAHNFSezi+0v/0z6xfw=" crossorigin="anonymous"></script>
     </body>
 </html>
