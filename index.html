@@ -116,7 +116,8 @@ xnd([[0, 1], [2, 3], [4, 5]], type='3 * 2 * int64')</code></pre>
 >>> # fixed dimension type
 >>> ndt("fixed(shape=10) * uint64")
 ndt("10 * uint64")</code></pre>
-<pre><code class="language-python">>>> # variable dimension type
+<pre><code class="language-python">>>> from ndtypes import ndt
+>>> # variable dimension type
 >>> ndt("var * float32")
 ndt("var * float32")</code></pre>
                     </div>
