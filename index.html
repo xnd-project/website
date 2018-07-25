@@ -1,16 +1,71 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.min.css" integrity="sha256-N1K43s+8twRa+tzzoF3V8EgssdDiZ6kd9r8Rfgg8kZU=" crossorigin="anonymous" />
-        <title>XND</title>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.min.css" integrity="sha256-N1K43s+8twRa+tzzoF3V8EgssdDiZ6kd9r8Rfgg8kZU="
+        crossorigin="anonymous" />
+    <!-- Custom styles for this template -->
+    <link href="css/extra.css" rel="stylesheet" media="all">
+    <title>XND</title>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="navbar-brand">
+                <img src="images/favicon-32x32.png" style="height: 2rem;">
+            </div>
+            <div class="navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="navbar-item">
+                        <a class="nav-link" href="#motivation">Motivation</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Documentation
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="">Overview</a>
+                            <a class="dropdown-item" href="">ndtypes</a>
+                            <a class="dropdown-item" href="">gumath</a>
+                            <a class="dropdown-item" href="">xnd-tools</a>
+                            <a class="dropdown-item" href="">numba-xnd</a>
+                            <a class="dropdown-item" href="">xndframes</a>
+                        </div>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a class="nav-link" href="">Install</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="">Deploy</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="">Tutorial</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+
         <main>
             <div class="jumbotron p-4">
                 <div class="container text-center">
@@ -23,25 +78,29 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="display-4">Motivation</h2>
+                        <h2 id="motivation" class="display-4">Motivation</h2>
                         <p>
-                            NumPy has been very impactful in the Python ecosystem, providing efficient array representations and computations.
-                            It is still heavily used today and many recent Python libraries either use it internally or were influenced by it's API.
+                            NumPy has been very impactful in the Python ecosystem, providing efficient array representations and computations. It is
+                            still heavily used today and many recent Python libraries either use it internally or were influenced
+                            by it's API.
                         </p>
                         <p>
                             However, with the explosion of machine learning and data analysis work happening in Python, many new libraries have implemented
-                            their own typed arrays and computation layers, because the NumPy model is not flexible enough. It is hard to extend NumPy with new types
-                            and get efficient computation on a variety of hardware devices.  It can also be difficult to use just the type system of NumPy
-                            or just the computational infrastructure of NumPy. 
+                            their own typed arrays and computation layers, because the NumPy model is not flexible enough.
+                            It is hard to extend NumPy with new types and get efficient computation on a variety of hardware
+                            devices. It can also be difficult to use just the type system of NumPy or just the computational
+                            infrastructure of NumPy.
                         </p>
                         <p>
-                            We are building XND to recreate the foundations of NumPy as a number of smaller libraries, combining the lessons learned in the past twenty years
-                            of array computing in Python with the needs of newer applications.  This is not a replacement of NumPy.  Eventually, NumPy could
-                            use XND as could Pandas, Dask, and other libraries. 
+                            We are building XND to recreate the foundations of NumPy as a number of smaller libraries, combining the lessons learned
+                            in the past twenty years of array computing in Python with the needs of newer applications. This
+                            is not a replacement of NumPy. Eventually, NumPy could use XND as could Pandas, Dask, and other
+                            libraries.
                         </p>
                         <p>
-                            In fact, we are actively working on using XND in Numba and are also very interested in integrating it with a variety of libraries including
-                            Dask, xarray, Numba, Chainer, PyTorch, Tensorflow, PyMC4, TVM/NNVM, Plasma Store, Apache Arrow, and Tensor Comprehensions.
+                            In fact, we are actively working on using XND in Numba and are also very interested in integrating it with a variety of libraries
+                            including Dask, xarray, Numba, Chainer, PyTorch, Tensorflow, PyMC4, TVM/NNVM, Plasma Store, Apache
+                            Arrow, and Tensor Comprehensions.
                         </p>
                         <p>
                             Please reach out if you have ideas or want to help, on either of the Gitter channels below:
@@ -62,8 +121,18 @@
                             gumath
                             <small class="text-muted">is a library for function dispatch.</small>
                         </h2>
-                        <p><strong><code>libgumath</code></strong> is a C library supporting a general dispatch mechanism for general memory containers as well as a specific implementation for NumPy-like containers of a composable, generalized function concept.</p>
-                        <p><strong><code>gumath</code></strong> is a Python wrapper for <code>libgumath</code>.</p>
+                        <p>
+                            <strong>
+                                <code>libgumath</code>
+                            </strong> is a C library supporting a general dispatch mechanism for general memory containers as well
+                            as a specific implementation for NumPy-like containers of a composable, generalized function
+                            concept.
+                        </p>
+                        <p>
+                            <strong>
+                                <code>gumath</code>
+                            </strong> is a Python wrapper for
+                            <code>libgumath</code>.</p>
                         <a class="btn btn-outline-primary" href="https://github.com/plures/gumath/" role="button">Code</a>
                         <a class="btn btn-outline-success" href="http://gumath.readthedocs.io/en/latest/index.html" role="button">Docs</a>
                     </div>
@@ -85,8 +154,16 @@ xnd([[0.8414709848078965, 0.9092974268256817], [0.1411200080598672, -0.756802495
                             xnd
                             <small class="text-muted">is a library for typed memory blocks.</small>
                         </h2>
-                        <p><strong><code>libxnd</code></strong> implements support for typed memory blocks using the <code>libndtypes</code> type library.</p>
-                        <p>The <strong><code>xnd</code></strong> module implements a container type that maps most Python values relevant for scientific computing directly to typed memory.</p>
+                        <p>
+                            <strong>
+                                <code>libxnd</code>
+                            </strong> implements support for typed memory blocks using the
+                            <code>libndtypes</code> type library.</p>
+                        <p>The
+                            <strong>
+                                <code>xnd</code>
+                            </strong> module implements a container type that maps most Python values relevant for scientific computing
+                            directly to typed memory.</p>
                         <a class="btn btn-outline-primary" href="https://github.com/plures/xnd/" role="button">Code</a>
                         <a class="btn btn-outline-success" href="http://xnd.readthedocs.io/en/latest/index.html" role="button">Docs</a>
                     </div>
@@ -107,8 +184,16 @@ xnd([[0, 1], [2, 3], [4, 5]], type='3 * 2 * int64')</code></pre>
                             ndtypes
                             <small class="text-muted">is a library for typing memory blocks.</small>
                         </h2>
-                        <p><strong><code>libndtypes</code></strong> implements the type part of a compiler frontend. It can describe C types needed for array computing and additionally includes symbolic types for the purposes of dynamic type checking.</p>
-                        <p>The <strong><code>ndtypes</code></strong> Python module implements bindings for libndtypes. Its purpose is to support the type part required for the xnd container module.</p>
+                        <p>
+                            <strong>
+                                <code>libndtypes</code>
+                            </strong> implements the type part of a compiler frontend. It can describe C types needed for array computing
+                            and additionally includes symbolic types for the purposes of dynamic type checking.</p>
+                        <p>The
+                            <strong>
+                                <code>ndtypes</code>
+                            </strong> Python module implements bindings for libndtypes. Its purpose is to support the type part required
+                            for the xnd container module.</p>
                         <a class="btn btn-outline-primary" href="https://github.com/plures/ndtypes/" role="button">Code</a>
                         <a class="btn btn-outline-success" href="http://ndtypes.readthedocs.io/en/latest/index.html" role="button">Docs</a>
                     </div>
@@ -117,7 +202,7 @@ xnd([[0, 1], [2, 3], [4, 5]], type='3 * 2 * int64')</code></pre>
 >>> # fixed dimension type
 >>> ndt("fixed(shape=10) * uint64")
 ndt("10 * uint64")</code></pre>
-<pre><code class="language-python">>>> from ndtypes import ndt
+                        <pre><code class="language-python">>>> from ndtypes import ndt
 >>> # variable dimension type
 >>> ndt("var * float32")
 ndt("var * float32")</code></pre>
@@ -129,17 +214,28 @@ ndt("var * float32")</code></pre>
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <p class="mb-0">Supported by <a href="https://www.quansight.com/">Quansight</a></p>
+                        <p class="mb-0">Supported by
+                            <a href="https://www.quansight.com/">Quansight</a>
+                        </p>
                     </div>
                     <div class="col-6">
-                        <p class="float-right mb-0"><a href="https://github.com/plures/website">Edit on GitHub</a></p>
+                        <p class="float-right mb-0">
+                            <a href="https://github.com/plures/website">Edit on GitHub</a>
+                        </p>
                     </div>
                 </div>
             </div>
         </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js" integrity="sha256-jTGzLAqOAcOL+ALD2f2tvFY7fs6dwkOeo88xiuVHaRk=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-python.min.js" integrity="sha256-Cnsy1D8mpJ5y4oRYZnhMnNxD51Cc1hHiQX33Jckfcn0=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-bash.min.js" integrity="sha256-Ch5rv5tgAdVMCh7Wqb0UOcXkQAHNFSezi+0v/0z6xfw=" crossorigin="anonymous"></script>
-    </body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js" integrity="sha256-jTGzLAqOAcOL+ALD2f2tvFY7fs6dwkOeo88xiuVHaRk="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-python.min.js" integrity="sha256-Cnsy1D8mpJ5y4oRYZnhMnNxD51Cc1hHiQX33Jckfcn0="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-bash.min.js" integrity="sha256-Ch5rv5tgAdVMCh7Wqb0UOcXkQAHNFSezi+0v/0z6xfw="
+            crossorigin="anonymous"></script>
+        <script src="js/tabs.js"></script>
+        <script src="js/navbar.js"></script>
+
+</body>
+
 </html>
