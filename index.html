@@ -12,223 +12,197 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/themes/prism.min.css" integrity="sha256-N1K43s+8twRa+tzzoF3V8EgssdDiZ6kd9r8Rfgg8kZU="
         crossorigin="anonymous" />
 
-    <!-- Custom styles for this template -->
-    <link href="css/extra.css" rel="stylesheet" media="all" />
+
     <title>XND</title>
 </head>
 
 <body>
 
-    <header>
 
-        <nav class="navbar navbar-expand-lg">
-            <div class="navbar-brand">
-                <img src="images/favicon-32x32.png" style="height: 2rem;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #F8F9FA;">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#gumath">gumath</a>
+                <a class="nav-item nav-link" href="#xnd">xnd</a>
+                <a class="nav-item nav-link" href="#ndtypes">ndtypes</a>
+                <a class="nav-item nav-link" href="#xndtools">xndtools</a>
             </div>
-            <div class="navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="jumbotron p-4">
+            <div class="container text-center">
+                <img class="img-fluid mb-4" src="images/xndlogo transparentbg.png" />
+                <p class="lead font-weight-normal">
+                    Developer libraries for array computing.
+                </p>
             </div>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="navbar-item">
-                        <a class="nav-link" href="#motivation">Motivation</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Documentation
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="https://xnd.readthedocs.io/en/latest/index.html">xnd</a>
-                            <a class="dropdown-item" href="https://ndtypes.readthedocs.io/en/latest/index.html">ndtypes</a>
-                            <a class="dropdown-item" href="https://gumath.readthedocs.io/en/latest/index.html">gumath</a>
-                            <a class="dropdown-item" href="https://github.com/plures/xndtools">xnd-tools</a>
-                            <a class="dropdown-item" href="https://github.com/Quansight/numba-xnd">numba-xnd</a>
-                            <a class="dropdown-item" href="https://xndframes.readthedocs.io/en/latest/">xndframes</a>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-        </nav>
-
-
-
-
-        <main>
-            <div class="jumbotron p-4">
-                <div class="container text-center">
-                    <img class="img-fluid mb-4" src="images/xndlogo transparentbg.png" />
-                    <p class="lead font-weight-normal">
-                        Developer libraries for array computing.
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 id="motivation" class="display-4">Motivation</h2>
+                    <p>
+                        NumPy has been very impactful in the Python ecosystem, providing efficient array representations and computations. It is
+                        still heavily used today and many recent Python libraries either use it internally or were influenced
+                        by it's API.
                     </p>
+                    <p>
+                        However, with the explosion of machine learning and data analysis work happening in Python, many new libraries have implemented
+                        their own typed arrays and computation layers, because the NumPy model is not flexible enough. It
+                        is hard to extend NumPy with new types and get efficient computation on a variety of hardware devices.
+                        It can also be difficult to use just the type system of NumPy or just the computational infrastructure
+                        of NumPy.
+                    </p>
+                    <p>
+                        We are building XND to recreate the foundations of NumPy as a number of smaller libraries, combining the lessons learned
+                        in the past twenty years of array computing in Python with the needs of newer applications. This
+                        is not a replacement of NumPy. Eventually, NumPy could use XND as could Pandas, Dask, and other libraries.
+                    </p>
+                    <p>
+                        In fact, we are actively working on using XND in Numba and are also very interested in integrating it with a variety of libraries
+                        including Dask, xarray, Numba, Chainer, PyTorch, Tensorflow, PyMC4, TVM/NNVM, Plasma Store, Apache
+                        Arrow, and Tensor Comprehensions.
+                    </p>
+                    <p>
+                        Please reach out if you have ideas or want to help, on either of the Gitter channels below:
+                    </p>
+                    <a class="btn btn-outline-danger" href="https://gitter.im/Plures/xnd">XND Gitter</a>
+                    <a class="btn btn-outline-danger" href="https://gitter.im/Plures/xnd-ml">XND integrations Gitter</a>
+                    <a class="btn btn-outline-success" href="https://github.com/Quansight/xnd-notebooks/blob/master/introduction.ipynb">Introduction Notebook</a>
                 </div>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 id="motivation" class="display-4">Motivation</h2>
-                        <p>
-                            NumPy has been very impactful in the Python ecosystem, providing efficient array representations and computations. It is
-                            still heavily used today and many recent Python libraries either use it internally or were influenced
-                            by it's API.
-                        </p>
-                        <p>
-                            However, with the explosion of machine learning and data analysis work happening in Python, many new libraries have implemented
-                            their own typed arrays and computation layers, because the NumPy model is not flexible enough.
-                            It is hard to extend NumPy with new types and get efficient computation on a variety of hardware
-                            devices. It can also be difficult to use just the type system of NumPy or just the computational
-                            infrastructure of NumPy.
-                        </p>
-                        <p>
-                            We are building XND to recreate the foundations of NumPy as a number of smaller libraries, combining the lessons learned
-                            in the past twenty years of array computing in Python with the needs of newer applications. This
-                            is not a replacement of NumPy. Eventually, NumPy could use XND as could Pandas, Dask, and other
-                            libraries.
-                        </p>
-                        <p>
-                            In fact, we are actively working on using XND in Numba and are also very interested in integrating it with a variety of libraries
-                            including Dask, xarray, Numba, Chainer, PyTorch, Tensorflow, PyMC4, TVM/NNVM, Plasma Store, Apache
-                            Arrow, and Tensor Comprehensions.
-                        </p>
-                        <p>
-                            Please reach out if you have ideas or want to help, on either of the Gitter channels below:
-                        </p>
-                        <a class="btn btn-outline-danger" href="https://gitter.im/Plures/xnd">XND Gitter</a>
-                        <a class="btn btn-outline-danger" href="https://gitter.im/Plures/xnd-ml">XND integrations Gitter</a>
-                        <a class="btn btn-outline-success" href="https://github.com/Quansight/xnd-notebooks/blob/master/introduction.ipynb">Introduction Notebook</a>
-                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="display-4 mt-5">Packages</h2>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2 class="display-4 mt-5">Packages</h2>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 id="gumath">
+                        gumath
+                        <small class="text-muted">is a library for function dispatch.</small>
+                    </h2>
+                    <p>
+                        <strong>
+                            <code>libgumath</code>
+                        </strong> is a C library supporting a general dispatch mechanism for general memory containers as well as a
+                        specific implementation for NumPy-like containers of a composable, generalized function concept.
+                    </p>
+                    <p>
+                        <strong>
+                            <code>gumath</code>
+                        </strong> is a Python wrapper for
+                        <code>libgumath</code>.</p>
+                    <a class="btn btn-outline-primary" href="https://github.com/plures/gumath/" role="button">Code</a>
+                    <a class="btn btn-outline-success" href="http://gumath.readthedocs.io/en/latest/index.html" role="button">Docs</a>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>
-                            gumath
-                            <small class="text-muted">is a library for function dispatch.</small>
-                        </h2>
-                        <p>
-                            <strong>
-                                <code>libgumath</code>
-                            </strong> is a C library supporting a general dispatch mechanism for general memory containers as well
-                            as a specific implementation for NumPy-like containers of a composable, generalized function
-                            concept.
-                        </p>
-                        <p>
-                            <strong>
-                                <code>gumath</code>
-                            </strong> is a Python wrapper for
-                            <code>libgumath</code>.</p>
-                        <a class="btn btn-outline-primary" href="https://github.com/plures/gumath/" role="button">Code</a>
-                        <a class="btn btn-outline-success" href="http://gumath.readthedocs.io/en/latest/index.html" role="button">Docs</a>
-                    </div>
-                    <div class="col-md-6">
-                        <pre><code class="language-bash">$ conda install -c xnd/label/dev gumath
+                <div class="col-md-6">
+                    <pre><code class="language-bash">$ conda install -c xnd/label/dev gumath
 # or
 $ python3 -m pip install gumath</code></pre>
 
-                        <pre><code class="language-python">>>> import gumath as gm
+                    <pre><code class="language-python">>>> import gumath as gm
 >>> from xnd import xnd
 >>> gm.sin(xnd([[1, 2], [3, 4]]))
 xnd([[0.8414709848078965, 0.9092974268256817], [0.1411200080598672, -0.7568024953079282]], type='2 * 2 * float64'))</code></pre>
-                    </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>
-                            xnd
-                            <small class="text-muted">is a library for typed memory blocks.</small>
-                        </h2>
-                        <p>
-                            <strong>
-                                <code>libxnd</code>
-                            </strong> implements support for typed memory blocks using the
-                            <code>libndtypes</code> type library.</p>
-                        <p>The
-                            <strong>
-                                <code>xnd</code>
-                            </strong> module implements a container type that maps most Python values relevant for scientific computing
-                            directly to typed memory.</p>
-                        <a class="btn btn-outline-primary" href="https://github.com/plures/xnd/" role="button">Code</a>
-                        <a class="btn btn-outline-success" href="http://xnd.readthedocs.io/en/latest/index.html" role="button">Docs</a>
-                    </div>
-                    <div class="col-md-6">
-                        <pre><code class="language-python">>>> from xnd import xnd
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 id="xnd">
+                        xnd
+                        <small class="text-muted">is a library for typed memory blocks.</small>
+                    </h2>
+                    <p>
+                        <strong>
+                            <code>libxnd</code>
+                        </strong> implements support for typed memory blocks using the
+                        <code>libndtypes</code> type library.</p>
+                    <p>The
+                        <strong>
+                            <code>xnd</code>
+                        </strong> module implements a container type that maps most Python values relevant for scientific computing
+                        directly to typed memory.</p>
+                    <a class="btn btn-outline-primary" href="https://github.com/plures/xnd/" role="button">Code</a>
+                    <a class="btn btn-outline-success" href="http://xnd.readthedocs.io/en/latest/index.html" role="button">Docs</a>
+                </div>
+                <div class="col-md-6">
+                    <pre><code class="language-python">>>> from xnd import xnd
 >>> xnd([{'b': [10.2, 232.3]}, {'b': [0.2, 0.23]}])
 xnd([{'b': [10.2, 232.3]}, {'b': [0.2, 0.23]}], type='2 * {b : 2 * float64}')</code></pre>
-                        <pre><code class="language-python">>>> from xnd import xnd
+                    <pre><code class="language-python">>>> from xnd import xnd
 >>> import numpy as np
 >>> xnd.from_buffer(np.arange(6).reshape(3, 2))
 xnd([[0, 1], [2, 3], [4, 5]], type='3 * 2 * int64')</code></pre>
-                    </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>
-                            ndtypes
-                            <small class="text-muted">is a library for typing memory blocks.</small>
-                        </h2>
-                        <p>
-                            <strong>
-                                <code>libndtypes</code>
-                            </strong> implements the type part of a compiler frontend. It can describe C types needed for array computing
-                            and additionally includes symbolic types for the purposes of dynamic type checking.</p>
-                        <p>The
-                            <strong>
-                                <code>ndtypes</code>
-                            </strong> Python module implements bindings for libndtypes. Its purpose is to support the type part required
-                            for the xnd container module.</p>
-                        <a class="btn btn-outline-primary" href="https://github.com/plures/ndtypes/" role="button">Code</a>
-                        <a class="btn btn-outline-success" href="http://ndtypes.readthedocs.io/en/latest/index.html" role="button">Docs</a>
-                    </div>
-                    <div class="col-md-6">
-                        <pre><code class="language-python">>>> from ndtypes import ndt
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 id="ndtypes">
+                        ndtypes
+                        <small class="text-muted">is a library for typing memory blocks.</small>
+                    </h2>
+                    <p>
+                        <strong>
+                            <code>libndtypes</code>
+                        </strong> implements the type part of a compiler frontend. It can describe C types needed for array computing
+                        and additionally includes symbolic types for the purposes of dynamic type checking.</p>
+                    <p>The
+                        <strong>
+                            <code>ndtypes</code>
+                        </strong> Python module implements bindings for libndtypes. Its purpose is to support the type part required
+                        for the xnd container module.</p>
+                    <a class="btn btn-outline-primary" href="https://github.com/plures/ndtypes/" role="button">Code</a>
+                    <a class="btn btn-outline-success" href="http://ndtypes.readthedocs.io/en/latest/index.html" role="button">Docs</a>
+                </div>
+                <div class="col-md-6">
+                    <pre><code class="language-python">>>> from ndtypes import ndt
 >>> # fixed dimension type
 >>> ndt("fixed(shape=10) * uint64")
 ndt("10 * uint64")</code></pre>
-                        <pre><code class="language-python">>>> from ndtypes import ndt
+                    <pre><code class="language-python">>>> from ndtypes import ndt
 >>> # variable dimension type
 >>> ndt("var * float32")
 ndt("var * float32")</code></pre>
-                    </div>
                 </div>
             </div>
-        </main>
-        <footer class="mt-4 py-4 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        <p class="mb-0">Supported by
-                            <a href="https://www.quansight.com/">Quansight</a>
-                        </p>
-                    </div>
-                    <div class="col-6">
-                        <p class="float-right mb-0">
-                            <a href="https://github.com/plures/website">Edit on GitHub</a>
-                        </p>
-                    </div>
+        </div>
+    </main>
+    <footer class="mt-4 py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <p class="mb-0">Supported by
+                        <a href="https://www.quansight.com/">Quansight</a>
+                    </p>
+                </div>
+                <div class="col-6">
+                    <p class="float-right mb-0">
+                        <a href="https://github.com/plures/website">Edit on GitHub</a>
+                    </p>
                 </div>
             </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        </div>
+    </footer>
 
-        <!-- Code highlighting -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-python.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-bash.min.js" integrity="sha256-Ch5rv5tgAdVMCh7Wqb0UOcXkQAHNFSezi+0v/0z6xfw="
-            crossorigin="anonymous"></script>
-        <script src="js/tabs.js"></script>
-        <script src="js/navbar.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Code highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.14.0/components/prism-bash.min.js" integrity="sha256-Ch5rv5tgAdVMCh7Wqb0UOcXkQAHNFSezi+0v/0z6xfw="
+        crossorigin="anonymous"></script>
+
 
 </body>
 
