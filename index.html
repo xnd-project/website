@@ -32,7 +32,7 @@
                 <a class="nav-item nav-link" href="#gumath">gumath</a>
                 <a class="nav-item nav-link" href="#xnd">xnd</a>
                 <a class="nav-item nav-link" href="#ndtypes">ndtypes</a>
-                <a class="nav-item nav-link" href="https://github.com/plures/xndtools">xndtools</a>
+                <a class="nav-item nav-link" href="#xndtools">xndtools</a>
             </div>
         </div>
     </nav>
@@ -191,6 +191,60 @@ ndt("10 * uint64")</code></pre>
 ndt("var * float32")</code></pre>
                 </div>
             </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 id="xndtools">
+                        xndtools
+                        <small class="text-muted">is a tool for making gumath kernel generation easy</small>
+                    </h2>
+                    <p>
+                        <strong><code>xndtools</code></strong> 
+                        provides a script that builds gumath kernels from C prototypes of the computational functions.
+                    </p>
+                    <a class="btn btn-outline-primary" href="https://github.com/plures/xndtools/" role="button">Code</a>
+                    <a class="btn btn-outline-success" href="http://xnd.readthedocs.io/en/latest/xndtools/index.html" role="button">Docs</a>
+                </div>
+                <div class="col-md-6">
+<pre><code class="language-bash">
+# To generate initial kernels configuration file (mkl_blas-kernels.cfg):
+$ xnd_tools config $CONDA_PREFIX/include/mkl_blas.h
+</code></pre>
+
+<pre>
+# Must modify mkl_blas-kernels.cfg:
+[MODULE mkl_blas]
+typemaps: 
+  MKL_INT: int64
+includes:
+  mkl_blas.h
+kinds: Xnd, C
+ellipses: none, ...
+[KERNEL dot]
+prototypes: 
+  double ddot(MKL_INT *n, double *x, MKL_INT *incx, double *y, MKL_INT *incy);
+  float sdot(MKL_INT *n, float *x, MKL_INT *incx, float *y, MKL_INT *incy);
+description: Compute dot product of two arrays
+input_arguments: x(n), y(n)
+hide_arguments: n = len(x), incx = 1, incy = 1
+</pre>
+              
+<pre><code class="language-bash">
+# To generate kernels (mkl_blas-kernels.c) 
+# and Python extension module (mkl_blas-python.c)
+$ xnd_tools module mkl_blas-kernels.cfg
+</code></pre>
+<pre><code class="language-python">>>> # After building python extension module:
+>>> import mkl_blas
+>>> from xnd import xnd
+>>> x = xnd([[1,2], [3,4]], dtype = 'float64')
+>>> mkl_blas.dot(x, x)
+xnd([5.0, 25.0], type='2 * float64')
+</code></pre>
+                </div>
+            </div>
+
         </div>
     </main>
     <footer class="mt-4 py-4 bg-light">
