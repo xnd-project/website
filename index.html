@@ -197,7 +197,7 @@ ndt("var * float32")</code></pre>
                 <div class="col-md-6">
                     <h2 id="xndtools">
                         xndtools
-                        <small class="text-muted">is a tool for making gumath kernel generation easy</small>
+                        <small class="text-muted">is a tool to help make gumath kernels</small>
                     </h2>
                     <p>
                         <strong><code>xndtools</code></strong> 
@@ -207,13 +207,11 @@ ndt("var * float32")</code></pre>
                     <a class="btn btn-outline-success" href="http://xnd.readthedocs.io/en/latest/xndtools/index.html" role="button">Docs</a>
                 </div>
                 <div class="col-md-6">
-<pre><code class="language-bash">
-# To generate initial kernels configuration file (mkl_blas-kernels.cfg):
+<pre><code class="language-bash"># Generate kernels configuration file (mkl_blas-kernels.cfg)
 $ xnd_tools config $CONDA_PREFIX/include/mkl_blas.h
 </code></pre>
 
-<pre>
-# Must modify mkl_blas-kernels.cfg:
+<pre><code class="language-bash"># Modify mkl_blas-kernels.cfg
 [MODULE mkl_blas]
 typemaps: 
   MKL_INT: int64
@@ -228,14 +226,13 @@ prototypes:
 description: Compute dot product of two arrays
 input_arguments: x(n), y(n)
 hide_arguments: n = len(x), incx = 1, incy = 1
-</pre>
+</code></pre>
               
-<pre><code class="language-bash">
-# To generate kernels (mkl_blas-kernels.c) 
+<pre><code class="language-bash"># Generate kernels (mkl_blas-kernels.c) 
 # and Python extension module (mkl_blas-python.c)
 $ xnd_tools module mkl_blas-kernels.cfg
 </code></pre>
-<pre><code class="language-python">>>> # After building python extension module:
+<pre><code class="language-python">>>> # Build Python extension and use:
 >>> import mkl_blas
 >>> from xnd import xnd
 >>> x = xnd([[1,2], [3,4]], dtype = 'float64')
