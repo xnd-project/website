@@ -54,7 +54,7 @@
                     <p>
                         NumPy has been very impactful in the Python ecosystem, providing efficient array representations and computations. It is
                         still heavily used today and many recent Python libraries either use it internally or were influenced
-                        by it's API.
+                        by its API.
                     </p>
                     <p>
                         However, with the explosion of machine learning and data analysis work happening in Python, many new libraries have implemented
@@ -87,9 +87,12 @@
                     <p class="mt-3">
                         If you want to understand more about XND and Plures projects, we invite you to check out this introductory notebook:
                     </p>
-                    <a class="btn btn-outline-success"
+                    <a class="btn btn-outline-success" target="_blank"
                        href="https://github.com/Quansight/xnd-notebooks/blob/master/introduction.ipynb"
-                    >Introduction Notebook</a>
+                    >Introduction Notebook (Git repo)</a>
+                    <a class="btn btn-outline-success" target="_blank"
+                       href="https://mybinder.org/v2/gh/Quansight/xnd-notebooks/master/"
+                    >XND Notebooks (Binder)</a>
                 </div>
             </div>
             <div class="row">
@@ -123,9 +126,9 @@
 # or
 $ python3 -m pip install gumath</code></pre>
 
-                    <pre><code class="language-python">>>> import gumath as gm
+                    <pre><code class="language-python">>>> from gumath import functions as fn
 >>> from xnd import xnd
->>> gm.sin(xnd([[1, 2], [3, 4]]))
+>>> fn.sin(xnd([[1, 2], [3, 4]], type='2 * 2 * float64'))
 xnd([[0.8414709848078965, 0.9092974268256817], [0.1411200080598672, -0.7568024953079282]], type='2 * 2 * float64'))</code></pre>
                 </div>
             </div>
@@ -200,7 +203,7 @@ ndt("var * float32")</code></pre>
                         <small class="text-muted">is a tool to help make gumath kernels.</small>
                     </h2>
                     <p>
-                        <strong><code>xndtools</code></strong> 
+                        <strong><code>xndtools</code></strong>
                         provides a script that builds gumath kernels from C prototypes of the computational functions.
                     </p>
                     <a class="btn btn-outline-primary" href="https://github.com/plures/xndtools/" role="button">Code</a>
@@ -213,22 +216,22 @@ $ xnd_tools config $CONDA_PREFIX/include/mkl_blas.h
 
 <pre><code class="language-bash"># Modify mkl_blas-kernels.cfg
 [MODULE mkl_blas]
-typemaps: 
+typemaps:
   MKL_INT: int64
 includes:
   mkl_blas.h
 kinds: Xnd, C
 ellipses: none, ...
 [KERNEL dot]
-prototypes: 
+prototypes:
   double ddot(MKL_INT *n, double *x, MKL_INT *incx, double *y, MKL_INT *incy);
   float sdot(MKL_INT *n, float *x, MKL_INT *incx, float *y, MKL_INT *incy);
 description: Compute dot product of two arrays
 input_arguments: x(n), y(n)
 hide_arguments: n = len(x), incx = 1, incy = 1
 </code></pre>
-              
-<pre><code class="language-bash"># Generate kernels (mkl_blas-kernels.c) 
+
+<pre><code class="language-bash"># Generate kernels (mkl_blas-kernels.c)
 # and Python extension module (mkl_blas-python.c)
 $ xnd_tools module mkl_blas-kernels.cfg
 </code></pre>
